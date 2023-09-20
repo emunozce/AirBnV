@@ -1,0 +1,75 @@
+<div class="container body">
+  <div class="texto">
+    <h1>Contactanos</h1>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <p>Tú opinion es importante para nosotros, por lo que te agradeceríamos si tienes una queja o sugerencia
+        proporcionarnos los siguientes datos y tus comentarios en los cambos de aquí abajo 😊
+      </p>
+
+      <div class="row g-3">
+
+        <div class="col">
+          <label for="nombre" class="form-label">Ingrese su nombre</label>
+          <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" name="nombre" id="nombre"
+            [formControl]="nombre">
+
+          <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
+            <span *ngIf="nombre?.errors?.['required']">
+              El nombre es requerido
+            </span>
+            <span *ngIf="nombre?.errors?.['pattern']">
+              El nombre no puede tener letras
+            </span>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="apellido" class="form-label">Ingrese su primer apellido</label>
+          <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" name="apellido"
+            id="apellido" [formControl]="apellido">
+          <div class="alert alert-danger mt-2" [hidden]="apellido.valid || apellido.pristine">
+            <span *ngIf="apellido?.errors?.['required']">
+              El apellido es requerido
+            </span>
+            <span *ngIf="apellido?.errors?.['pattern']">
+              El apellido no puede tener letras
+            </span>
+          </div>
+        </div>
+
+      </div>
+      <div class="row g-3">
+        <div class="col">
+          <label for="correo" class="form-label">Ingrese su correo por favor</label>
+          <input type="text" class="form-control" placeholder="Correo electrónico" aria-label="Nombre" name="correo"
+            id="correo" [formControl]="correo">
+
+          <div class="alert alert-danger mt-2" [hidden]="correo.valid || correo.pristine">
+            <span *ngIf="correo?.errors?.['required']">
+              El correo es requerido
+            </span>
+            <span *ngIf="correo?.errors?.['email']">
+              El correo no es valido
+            </span>
+          </div>
+        </div>
+
+      </div>
+      <div class="mb-3">
+        <div class="mb-3">
+          <label for="sugerencia" class="form-label">Escribenos tus sugerencias aquí 👇</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="sugerencia" id="sugerencia"
+            [formControl]="sugerencia"></textarea>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-primary"
+          [disabled]="correo.invalid || nombre.invalid || correo.invalid || sugerencia.invalid"
+          (click)="EnviarCorreo()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>

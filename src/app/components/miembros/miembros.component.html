@@ -1,0 +1,39 @@
+<div class="row body">
+  <ng-container *ngIf="currentUserAdmin(); else noAdmin">
+    <div class="col-12">
+      <h2>Lista de Todos los Miembros</h2>
+      <br>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Nombre de Usuario</th>
+              <th>Género</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios">
+              <td>{{ usuario.nombre }}</td>
+              <td>{{ usuario.usrName }}</td>
+              <td>{{ usuario.gender }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.telefono }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </ng-container>
+  <ng-template #noAdmin>
+    <div class="text-center">
+      <h2>Debe ser administrador para ver esta página</h2>
+      <button type="submit" class="btn btn-outline-dark" routerLink="/registro">
+        Inicie sesión
+      </button>
+    </div>
+  </ng-template>
+</div>

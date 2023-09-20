@@ -1,0 +1,34 @@
+.body {
+    min-height: 85vh;
+}
+.card{
+    background-color: rgba(0, 0, 0, 0.17);
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.etiquetas{
+    display: flex; 
+    justify-content: center;
+}
+.centrar{
+    margin: 0 auto;
+}
+.contenidoCentrar{
+    margin: auto auto;
+}
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+}
+  
+.map-frame {
+    height: 100%;
+}
+  
+#map {
+    height: 100%;
+}

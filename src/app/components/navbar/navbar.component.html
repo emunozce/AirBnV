@@ -1,0 +1,67 @@
+
+  <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-0" routerLink="home">
+        <img src="assets/Img/777.png" alt="" width="60" class="mb-3" class="nav777">
+      </a>
+      <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="home">AirbnV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="catalogo">Catálogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="skins">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="inversiones">Inversionistas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="conocenos">Conocenos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="dudas">Dudas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="contactanos">Contactanos</a>
+          </li>
+        </ul>
+        <form class="d-flex my-1 my-lg-0 mt-lg-0" role="search">
+          <input class="form-control" id="termino" type="search" placeholder="Busqueda" aria-label="Search">
+          <button routerLink="/busqueda/{{busqueda}}" class="btn btn-outline-light ms-1" type="submit">Buscar</button>
+        </form>
+        <div class="btn-group">
+          <button id="inicioSesion" type="button" class="btn btn-outline-info ms-lg-3 mt-2 mt-lg-0"
+            routerLink="registro">
+            <i class="fa-solid fa-user"></i> Iniciar Sesión/Registrarse
+          </button>
+          <button type="button"
+            class="btn btn-outline-info dropdown-toggle dropdown-toggle-split me-2 me-md-0 mt-2 mt-lg-0"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end">
+            <li class="nav-item">
+              <button id="reservar" class="dropdown-item" routerLinkActive="active" disabled routerLink="reservaciones">Reservaciones</button>
+            </li>
+            <ng-container *ngIf="usuarioAdmin">
+              <button id="graficas" class="dropdown-item" routerLink="miembros">Miembros</button>
+              <button id="graficas" class="dropdown-item" routerLink="graficas">Graficas</button>
+            </ng-container>
+            <li>
+              <button id="cerrarSesion" class="dropdown-item" disabled routerLink="registro"
+                (click)="cerrarSesion()">Cerrar sesión</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,68 @@
+<div class="container tabla body">
+  <div class="row">
+    <div class="col text-center">
+        <h3>Reservaciones</h3>
+    </div>
+  </div>
+  <ng-container *ngIf="auth.currentUser; else NoUsr">
+    <div class="" *ngIf="verificarDatos(); else error">
+      <br>
+      <div *ngIf="currentUserAdmin()">
+        <h4 class="text-center">Administración</h4>
+      </div>
+      <div class="table-responsive">
+          <table class="table table-dark table-striped text-center">
+              <thead>
+                  <tr>
+                      <th>Casa reservada</th>
+                      <th>Usuario</th>
+                      <th>Personas</th>
+                      <th>Fecha Inicio</th>
+                      <th>Fecha Final</th>
+                      <th>Total</th>
+                      <th>Cancelar Reservacion</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <ng-container *ngFor="let info of data">
+                    <tr class="table-secondary " *ngIf="info.uid==auth.currentUser?.uid || currentUserAdmin()">
+                      <td><img src="assets/casas/casa{{info.idCasa}}/casa{{info.idCasa}}.jpg" class="img-fluid rounded" style="max-height: 200px;" alt="Casa{{info.idCasa}}"></td>
+                      <td>{{info.infoUsuario.nombre}}</td>
+                      <td>{{info.cantPersonas}}</td>
+                      <td>{{info.fechaInicioFormato}}</td>
+                      <td>{{info.fechaFinalFormato}}</td>
+                      <td>${{info.precioFormato}}</td>
+                      <ng-container *ngIf="info.uid==auth.currentUser.uid; else otroUsuario">
+                        <ng-container *ngIf="fechaMayor(info.fechaInicio); else eliminar">
+                          <td><i class="fa-solid fa-circle-info fa-2xl" style="cursor:pointer" (click)="fechaMayorInfo()"></i></td>
+                        </ng-container>
+                        <ng-template #eliminar>
+                          <td><i class="fa-solid fa-rectangle-xmark fa-2xl" style="cursor:pointer;" (click)="eliminarReservacion(info.idCasa, info.idDocumento)"></i></td>
+                        </ng-template>
+                      </ng-container>
+                      <ng-template #otroUsuario>
+                        <td><i class="fa-solid fa-circle-info fa-2xl" style="cursor:pointer" (click)="otroUsuarioInfo(info.infoUsuario)"></i></td>
+                      </ng-template>
+
+                    </tr>
+                  </ng-container>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  </ng-container>
+  <ng-template #NoUsr>
+    <div class="text-center">
+      <button type="submit" class="btn btn-outline-dark" routerLink="/registro">
+        Inicie sesión para ver esta página
+      </button>
+    </div>
+  </ng-template>
+  <ng-template #error>
+    <div class="container text-center">
+        <h1>
+            No hay reservaciones para el usuario
+        </h1>
+    </div>
+  </ng-template>
+</div>

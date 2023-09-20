@@ -1,0 +1,50 @@
+<footer data-bs-theme="dark" class="navbar navbar-fixed-bottom">
+    <div class="container py-5">
+      <div class="row py-4 justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <ng-container *ngIf="nombreUsr!==null">
+            <div class="row py-4">
+                Bienvenido {{nombreUsr}}
+            </div>
+          </ng-container>
+          <img src="assets/Img/777.png" alt="" width="180" class="mb-3">
+          <p class="font-italic text-muted">
+            AirbnV una empresa con el fin de vender casitas dentro de un videojuego siendo pioneros en la venta de
+            inmobiliaria en Minecraft
+          </p>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h6 class="text-uppercase font-weight-bold mb-4">Conocenos</h6>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="#" routerLinkActive="active" routerLink="/registro"
+                class="text-muted">Registrarse</a></li>
+            <li class="mb-2"><a href="#" routerLinkActive="active" routerLink="/registro" class="text-muted">Iniciar
+                Sesión</a></li>
+            <li class="mb-2"><a href="#" routerLinkActive="active" routerLink="/catalogo" class="text-muted">Nuestras
+                casas</a></li>
+            <li class="mb-2"><a href="#" routerLinkActive="active" routerLink="/conocenos"
+                class="text-muted">Conocenos</a></li>
+            <li class="mb-2"><a href="#" routerLinkActive="active" routerLink="/dudas" class="text-muted">Dudas o
+                preguntas</a></li>
+            <li class="mb-2"><a href="#" routerLinkActive="active" routerLink="/contactanos"
+                class="text-muted">Contactanos</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h6 class="text-uppercase font-weight-bold mb-4">Nuestras redes</h6>
+          <ul class="list-inline" class="social">
+            <li class="list-inline-item"><a
+                href="https://twitter.com/vegetta777?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                target="_white" title="twitter"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a
+                href="https://www.facebook.com/profile.php?id=100085368251374&mibextid=ZbWKwL" target="_blank"
+                title="facebook"><i class="fa fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://instagram.com/tinus_bookstore?igshid=YmMyMTA2M2Y="
+                target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.youtube.com/user/vegetta777" target="_blank"
+                title="vimeo"><i class="fa fa-vimeo"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>

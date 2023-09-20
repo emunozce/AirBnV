@@ -1,0 +1,30 @@
+
+<div class="body">
+  <div class="mb-4">
+    <h1 class="text-center mb-4"> Un poco de nuestros usuarios </h1>
+    <p>En airbnv no solo nos gusta entregarles un contenido de calidad a nuestros
+      clientes y futuros clientes, si no también el mostrar por medio de ellos
+      sus experiencias rentando nuestras casas.
+    </p>
+    <p>Por lo que en la siguiente tabla se muestra las skins de estos, su nombre de usuario y fecha
+      en la que ingresaron, con el fin de que sigas su contenido y escuches de boca suya sus opiniones
+      rentando nuestras casas.
+    </p>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col"> Skin </th>
+        <th scope="col"> Nombre usuario </th>
+        <th scope="col"> Año ingreso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let skin of resultados">
+        <td> <img src ="https://crafatar.com/renders/body/{{skin.uuid}}" alt="Avatar+{{skin.username}}"> </td>
+        <td> {{skin.username}} </td>
+        <td> {{skin.created_at}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

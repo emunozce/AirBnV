@@ -1,0 +1,22 @@
+<div class="row body">
+  <ng-container *ngIf="currentUserAdmin(); else noAdmin">
+      <div class="col-12 col-xxl-6" id="canvaContainer">
+        <h2>Reservaciones por casas</h2>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <div class="col-12 col-xxl-6" id="genderChartContainer">
+        <h2>Género de usuarios</h2>
+        <canvas id="genderChart"></canvas>
+      </div>
+
+  </ng-container>
+  <ng-template #noAdmin>
+    <div class="text-center">
+      <h2>Debe ser administrador para ver esta página</h2>
+      <button type="submit" class="btn btn-outline-dark" routerLink="/registro">
+        Inicie sesión
+      </button>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,65 @@
+<div class="body">
+    <div *ngIf="busqueda != ''; else sinBusqueda">
+        <div *ngIf=" resultados.length!=0 ; else sinResultados">
+            <div class="row">
+                <div id="filtro" class="col col-md-8 offset-md-2 offset-lg-0 col-lg-4 col-xl-3 my-3 hidden">
+                    <div class="sticky-lg-top">
+                        <div class="card flex justify-content-center mt-2">
+                            <label class="text-center" for="ciudades"><strong >Ubicacion</strong></label>
+                            <hr>
+                            <div class="text-center mb-2">
+                                <p-dropdown [options]="ciudades" [showClear]="true" placeholder="Selecciona un bioma" [(ngModel)]="ciudadSeleccionada" optionLabel="name" (onClear)="filtrarResultados()" (onChange)="filtrarResultados()"></p-dropdown>
+                            </div>
+                        </div>
+                        <div class="card flex justify-content-center mt-2">
+                            <label class="text-center" for="slider"><strong >Rango precios</strong></label>
+                            <hr>
+                            <div class="row">
+                                <p class="col-6 text-center">Min: ${{rangeValues[0]}}</p>
+                                <p class="col-6 text-center">Max: ${{rangeValues[1]}}</p>
+                            </div>
+                            <p-slider id="slider" [(ngModel)]="rangeValues" [range]="true" [animate]="true" [max]="maxValue" [min]="minValue" (onSlideEnd)="filtrarResultados()"></p-slider>
+                        </div>
+                        <div class="card flex justify-content-center mt-2 text-center">
+                            <label for="calendario"><strong class="text-center">Fechas disponibles</strong></label>
+                            <hr>
+                            <p-calendar dateFormat="dd/mm/yy" inputId="calendario" class="mb-2" [(ngModel)]="rangeDates" selectionMode="range" [minDate]="minDate" [readonlyInput]="true" (onClose)="filtrarResultados()"></p-calendar>
+                        </div>
+                        <div class="card flex justify-content-center mt-2 text-center">
+                            <label for="minmax"><strong class="text-center">Cantidad Personas</strong></label>
+                            <hr>
+                            <div class="text-center">
+                                <p-inputNumber class="mb-2" inputId="minmax" [(ngModel)]="cantPersonas" [min]="minPersonas" [max]="maxPersonas" (onInput)="filtrarResultados()"> </p-inputNumber>
+                            </div>
+                        </div>
+                        <div class="card flex justify-content-center mt-2 text-center">
+                            <label><strong class="text-center">Etiquetas</strong></label>
+                            <hr>
+                            <div style="display: flex; flex-wrap: wrap;">
+                                <p *ngFor="let tag of tags" class="m-2">
+                                    <p-checkbox name="tags" (onChange)="filtrarResultados()" [(ngModel)]="tagsSeleccion" inputId="{{tag}}" value="{{tag}}"></p-checkbox>
+                                    <label for="{{tag}}">{{tag}}</label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-8 col-xl-9">
+                    <ng-container *ngIf="resultadosFiltrados.length != 0; else sinFiltro">
+                        <app-cards [casas]="resultadosFiltrados"></app-cards>
+                    </ng-container>
+                    <ng-template #sinFiltro>
+                        <h1 class="text-center my-5">No hay resultados que cumplan los filtros</h1>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #sinResultados>
+        <h1 class="text-center my-5">No hay resultados para la busqueda</h1>
+    </ng-template>
+    <ng-template #sinBusqueda>
+        <h1 class="text-center my-5">Ingrese un término de busqueda</h1>
+    </ng-template>
+  </div>
+

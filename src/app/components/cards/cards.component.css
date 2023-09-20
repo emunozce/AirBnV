@@ -1,0 +1,15 @@
+.card{
+    background-color: rgba(0, 0, 0, 0.17);
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+.centro{
+    display: flex;
+    justify-content: space-around;
+}
+
+.carta{
+  width: 100%;
+}

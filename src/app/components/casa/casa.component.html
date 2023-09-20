@@ -1,0 +1,149 @@
+<div class="body">
+<div class="card m-4 text-center">
+  <div class="card-body row">
+    <div class="col-12 col-lg-6 mb-3">
+      <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/casas/{{casa.carpetaImg}}/{{casa.rutaImg[0]}}" class="d-block w-100 rounded" alt="...">
+          </div>
+            <div class="carousel-item" *ngFor="let imagen of casa.rutaImg | slice:1; let i = index;">
+              <img src="assets/casas/{{casa.carpetaImg}}/{{imagen}}" class="d-block w-100 rounded" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6 contenidoCentrar">
+      <h5 class="card-title">{{ casa.nombre }}</h5>
+      <hr>
+      <div class="card-text">
+        <p [outerHTML]="casa.descripcion"></p>
+      </div>
+      <div class="card-text flex align-items-center gap-2 flex-wrap">
+        <p-tag
+          class="m-1"
+          *ngFor="let caracteristica of casa.tags"
+          value="{{ caracteristica }}"
+        ></p-tag>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="col-6 text-center centrar">
+      <div class="card-text my-3 etiquetas">
+        <p class="m-1">
+          <p-chip label="{{ casa.precio |  currency: 'USD' }}" icon="pi pi-money-bill"></p-chip>
+        </p>
+        <p class="m-1">
+          <p-chip label="{{ casa.maxPersonas }}" icon="pi pi-user"></p-chip>
+        </p>
+        <p class="m-1">
+          <p-chip
+            label="{{ casa.ubicacion.name }}"
+            icon="pi pi-map-marker"
+          ></p-chip>
+        </p>
+      </div>
+    </div>
+  </div>
+    <!--<div
+      class="map-container"
+      leaflet
+      [leafletOptions]="options"
+      (leafletMapReady)="onMapReady($event)"
+      (leafletMapZoomEnd)="onMapZoomEnd($event)">
+    </div>-->
+    <div id="codigoQR">
+      <h4>¡Guarda tu reserva en el calendario!</h4>
+      <qrcode
+        [qrdata]="valor"
+        [allowEmptyString]="true"
+        [alt]="'A custom alt attribute'"
+        [ariaLabel]="'QR Code image with the following content...'"
+        [cssClass]="'center'"
+        [colorDark]="'#000000ff'"
+        [colorLight]="'#b5b1b4'"
+        [elementType]="'img'"
+        [errorCorrectionLevel]="'M'"
+        [margin]="4"
+        [scale]="1"
+        [title]="'A custom title attribute'"
+        [width]="300"
+      ></qrcode>
+    </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 col-sm-10 offset-sm-1 offset-lg-0 col-lg-7 col-xl-5 card mb-2 mb-lg-0">
+        <form [formGroup]="reserva" (ngSubmit)="registrarReserva()">
+          <div class="justify-content-center text-center" id="formulario">
+            <div class="m-2">
+              <label  (click)="infoFechas()" class="form-control mb-2" for="calendario">Fechas <i class="fa-solid fa-circle-question"></i></label>
+              <p-calendar
+                dateFormat="dd/mm/yy"
+                formControlName="fecha"
+                inputId="calendario"
+                [(ngModel)]="rangeDates"
+                selectionMode="range"
+                [minDate]="minDate"
+                [readonlyInput]="true"
+                [inline]="true"
+                [disabledDates]="diasdesh">
+              </p-calendar>
+            </div>
+            <div class="input-group my-1" style="max-width: 100%;">
+              <label class="input-group-text " for="selectPer">No. de personas</label>
+              <select
+                class="form-select"
+                id="selectPer"
+                formControlName="CantidadPersona"
+              >
+                <option *ngFor="let value of i" [value]="value + 1">
+                  {{ value + 1 }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div  *ngIf="verificarUsr(); else NoUsr" >
+              <button type="submit" class="btn btn-outline-dark">
+                Reservar
+              </button>
+            </div>
+            <ng-template #NoUsr>
+              <button type="submit" class="btn btn-outline-dark" routerLink="/registro">
+                Inicia sesión para continuar
+                </button>
+            </ng-template>
+          </div>
+        </form>
+      </div>
+      <div class="col-12 col-sm-10 offset-sm-1 offset-lg-0 col-lg-5 col-xl-7 rounded">
+        <div class="map-container">
+          <div class="map-frame">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- <div class="card-footer text-center">
+    <div *ngIf="reserva.valid; else error" class="alert alert-success">
+      Los datos ingresados son correctos
+    </div>
+    <ng-template #error>
+      <div class="alert alert-danger">Los datos ingresados son incorrectos</div>
+    </ng-template>
+  </div> -->
+</div>
+</div>
