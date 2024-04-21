@@ -16,17 +16,17 @@ Follow these steps to run the web application locally:
    - Make sure you have Node.js and npm installed on your system.
 
 2. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/your-username/minecraft-house-rental.git
-   ```
+    ```bash
+    git clone https://github.com/your-username/minecraft-house-rental.git
+    ```
 3. **Install Dependencies**
-  ```bash
-  npm install
-  ```
+    ```bash
+    npm install
+    ```
 5. **Serve the Application**
-  ```bash
-  ng serve
-  ```
+    ```bash
+    ng serve
+    ```
  **Access the Application**
  - Open your web browser and go to [http://localhost:4200](http://localhost:4200)
 
