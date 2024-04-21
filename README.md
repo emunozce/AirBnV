@@ -1,23 +1,62 @@
-# Proyecto
+# AirBnV Minecraft
 
-Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+Welcome to the AirBnV Minecraft repository! This project aims to provide a platform similar to Airbnb but specifically tailored for renting out houses made in Minecraft. With Angular v15.2.1, we've created a seamless and user-friendly experience for both renters and hosts.
 
-El proyecto consta de una pagina web que muestra casas de Minecraft, estilo AirBnV, donde el usuario puede rentar una de estas casas.
-Consta de una pagina de registro donde hay un formulario que se valida usando el framework de Angular, una vez registrado, dichos registros se
-van a una base de datos en FireBase.
+## Features:
+- **House Listings:** Browse through a variety of houses available for rent.
+- **Availability Check:** Check the availability of houses for specific dates.
+- **Booking System:** Reserve a house for a specified duration.
+- **User Authentication:** Secure login and registration for both renters and hosts.
 
-De igual manera, se hace uso de NodeJS, para generar todas las dependecias que se requieren. Para descargar las dependencias necesarias, solo hace
-falta ingresar a la terminal dentro de la carpeta del proyecto y escribir `npm install`.
+## How to Execute:
 
-Entre las funcionalidades que esta pagina tiene, una de ellas es la posibilidad de hacerla una pagina PWA, es decir, desde el dispositivo movil, se puede descargar
-como si fuera una aplicacion nativa. A su vez, tambien se agrego el uso de codigos QR que redirijen al usuario a una pagina en especifico, asi como
-atajos de accesibilidad, lo que le da a la pagina un nivel de inclusion mayor.
+Follow these steps to run the web application locally:
 
-## Levantar un servidor en el localhost
+1. **Prerequisites:**
+   - Make sure you have Node.js and npm installed on your system.
 
-Usa `ng serve` para un servidor de desarrollo. Dirigirse a `http://localhost:4200/`. la aplicacion se actualizara automaticamente al realizar cambios en el codgo fuente.
+2. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/minecraft-house-rental.git
+   ```
+3. **Install Dependencies**
+  ```bash
+  npm install
+  ```
+5. **Serve the Application**
+  ```bash
+  ng serve
+  ```
+ **Access the Application**
+ - Open your web browser and go to [http://localhost:4200](http://localhost:4200)
 
+## Usage:
 
-## Construir el proyecto
+### As a Renter:
+- Browse through available houses.
+- Check the availability for desired dates.
+- Reserve a house by specifying the duration of stay.
 
-Usa `ng build` para construir el proyecto. Todos los archivos correspondientes se guardaran en la carpeta `dist/`.
+### As a Host:
+- Add your Minecraft house listings.
+- Manage availability and bookings.
+- Interact with renters through the platform.
+
+## Note:
+
+This project was developed as a part of a college assignment. While efforts have been made to ensure its functionality and usability, please note that this is not a production-ready application.
+
+## Contributors:
+
+- [Emmanuel Munoz](https://github.com/emunozce)
+- [Gerardo Delgado](https://github.com/Gerardo1209)
+- [Francisco Mendez](https://github.com/FcoMdz)
+- [Sandra Prieto](https://github.com/sandy02star)
+- [Fatima Martinez](https://github.com/fatXXXima)
+- [Javier Guerrero](https://github.com/JaviDuu)
+
+### License
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
+
+Happy renting and building in Minecraft! 🏠🎮
+
